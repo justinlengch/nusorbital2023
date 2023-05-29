@@ -45,12 +45,12 @@ export default function SignUp({ navigation }) {
                     onChangeText={(text) => setPassword(text)}
                 />
                 <TouchableOpacity style={styles.button} onPress={onHandleSignUp}>
-                    <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}> Log In</Text>
+                    <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}>Sign Up</Text>
                 </TouchableOpacity>
                 <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
                     <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>Already have an account? </Text>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                    <Text style={{color: '#f57c00', fontWeight: '600', fontSize: 14}}> Login</Text>
+                    <Text style={{color: '#f57c00', fontWeight: '600', fontSize: 14}}>Login</Text>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
