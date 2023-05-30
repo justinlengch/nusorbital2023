@@ -1,18 +1,7 @@
-import React, {
-    useState,
-    useEffect,
-    useLayoutEffect,
-    useCallback
-  } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react';
   import { TouchableOpacity, Text } from 'react-native';
   import { GiftedChat } from 'react-native-gifted-chat';
-  import {
-    collection,
-    addDoc,
-    orderBy,
-    query,
-    onSnapshot
-  } from 'firebase/firestore';
+  import { collection, addDoc, orderBy, query, onSnapshot } from 'firebase/firestore';
   import { signOut } from 'firebase/auth';
   import { auth, database } from '../config/firebase';
   import { useNavigation } from '@react-navigation/native';
@@ -50,7 +39,7 @@ import React, {
         const q = query(collectionRef, orderBy('createdAt', 'desc'));
 
     const unsubscribe = onSnapshot(q, querySnapshot => {
-        console.log('querySnapshot unsusbscribe');
+        console.log('querySnapshot unsubscribe');
           setMessages(
             querySnapshot.docs.map(doc => ({
               _id: doc.data()._id,
@@ -78,11 +67,7 @@ import React, {
       }, []);
 
       return (
-        // <>
-        //   {messages.map(message => (
-        //     <Text key={message._id}>{message.text}</Text>
-        //   ))}
-        // </>
+    
         <GiftedChat
           messages={messages}
           showAvatarForEveryMessage={false}
