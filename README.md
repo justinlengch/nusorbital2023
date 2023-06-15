@@ -161,4 +161,4 @@ The chat app will be primarily targeted towards university students (in this cas
 
 
 
-#### [Video link](clipchamp.com/watch/9tEIm2e9EsZ) for milestone 1 ####
+#### [Video link](https://www.clipchamp.com/watch/9tEIm2e9EsZ) for milestone 1 ####
