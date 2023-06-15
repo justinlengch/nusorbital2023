@@ -160,3 +160,5 @@ The chat app will be primarily targeted towards university students (in this cas
     - Avatar rewards (displayed as profile images) redeemed by collecting points from minigames
 
 
+
+#### [Video link](clipchamp.com/watch/9tEIm2e9EsZ) for milestone 1 ####
