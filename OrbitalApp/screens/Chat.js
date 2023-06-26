@@ -7,6 +7,7 @@ import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
   import { useNavigation } from '@react-navigation/native';
   import { AntDesign } from '@expo/vector-icons';
   import colors from '../colors';
+  import Game1 from './Game1';
 
 
   export default function Chat() {
@@ -14,10 +15,13 @@ import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
     const [messages, setMessages] = useState([]);
     const navigation = useNavigation();
 
-  const onSignOut = () => {
+    const onSignOut = () => {
       signOut(auth).catch(error => console.log('Error logging out: ', error));
-    };
-
+      };
+    
+    const gameLaunch = () => {
+      navigation.navigate('Game1');
+    }
     useLayoutEffect(() => {
         navigation.setOptions({
           headerRight: () => (
@@ -25,9 +29,9 @@ import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
               style={{
                 marginRight: 10
               }}
-              onPress={onSignOut}
+              onPress={gameLaunch}
             >
-              <AntDesign name="logout" size={24} color={colors.gray} style={{marginRight: 10}}/>
+              <AntDesign name="play" size={24} color={colors.blue} style={{marginRight: 10}}/>
             </TouchableOpacity>
           )
         });
@@ -56,7 +60,6 @@ import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
         setMessages(previousMessages =>
           GiftedChat.append(previousMessages, messages)
         );
-        // setMessages([...messages, ...messages]);
         const { _id, createdAt, text, user } = messages[0];    
         addDoc(collection(database, 'chats'), {
           _id,
@@ -83,6 +86,7 @@ import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
           user={{
             _id: auth?.currentUser?.email,
             avatar: 'https://i.pravatar.cc/300'
+          
           }}
         />
       );
