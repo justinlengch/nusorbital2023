@@ -106,7 +106,7 @@ The chat app will be primarily targeted towards university students (in this cas
 - Proposing for the feature to be either be based on swiping or a simple green-button/red-button tap interface. Animations intended to be included.
 
 ***Current Progress***
-- As of milestone 1, it is yet to be implemented. Currently different versions are being looked at, compared and studied. *(For instance, two possible ways (button press/swipe) to implement the same are shown as in the figure below)*
+- As of milestone 2, it is yet to be implemented. Currently different versions are being looked at, compared and studied. More in depth research from match interface of dating apps etc to draw as examples. *(For instance, two possible ways (button press/swipe) to implement the same are shown as in the figure below)*
 
 ![Mockup drawing of matching interface](readmePics/matchscreen_mockup.png)
 
@@ -117,6 +117,9 @@ The chat app will be primarily targeted towards university students (in this cas
 - The games are further proposed to have a points system which can be used to unlock achievements and collect more avatars to display in place of profile pictures.
 
 - Eventually proposed to include leaderboards.
+
+***Current Progress***
+- One minigames prototype of tic tac toe have been implemented. Currently looking to make the winnings be tracked for the gamification system.
 
 
 ## **Architectural Diagram:** ##
@@ -131,34 +134,37 @@ The chat app will be primarily targeted towards university students (in this cas
 - Login and Sign-Up interface
 - Connection to Firebase to authenticate E-mails
 
-**To be completed by mid June:**
+**Completed as of Milestone 2:**
 - Database and signup procedure to be completed in coherence
     - i.e. recorded information by the signup to be updated in database, which includes:
-        - store data in database
-        - link database to signup/login screen
-        - option to update information after signup
+        - store data in database (completed)
+        - link database to signup/login screen (completed)
 
+-Games prototype
+    -simple tic tac toe game played between users completed
+    -launched from chat screen
+
+-Chat interface
+    - Whatsapp style messaging with chats that remain until users are unmatched
+        
 **To be completed by end June:**
 - Completed chat interface, i.e. implementing:
-    - Whatsapp style messaging with chats that remains until users are unmatched
-    - Concurrent chats with multiple matches 
-    - Chat window pop-ups while a minigame is ongoing (undecided)
     - Notifications of incomming messages
+    - Option to update information after signup (in-process)
+    - Auto-login
 
 - Matching interface, which includes:
     - Implementing swipe/choose feature
     - Display respective data for matching interface
-    - Prompting of chat interface upon matching
     - Notifications for messages / upon successful matches
 
-**To be completed by end July:**
-- Minigames:
-    - incorporate >= 1 minigames into chat screens 
-
+**To be completed by end July:** 
 - Gamification system (undecided)
     - Reward users with points for winning/completing minigames
     - Avatar rewards (displayed as profile images) redeemed by collecting points from minigames
+    
+- User Testing
 
 
 
-#### [Video link](https://www.clipchamp.com/watch/9tEIm2e9EsZ) for milestone 1 ####
+#### [Video link](https://www.clipchamp.com/watch/9tEIm2e9EsZ) for milestone 2 ####
