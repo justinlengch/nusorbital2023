@@ -50,7 +50,7 @@ export default function Login({ navigation }) {
                 <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
                     <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>Don't have an account? </Text>
                     <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                    <Text style={{color: '#f57c00', fontWeight: '600', fontSize: 14}}>Sign Up</Text>
+                    <Text style={{color: '#3B719F', fontWeight: '600', fontSize: 14}}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
        marginHorizontal: 30,
     },
     button: {
-       backgroundColor: '#f57c00',
+       backgroundColor: '#3B719F',
        height: 58,
        borderRadius: 10,
        justifyContent: 'center',

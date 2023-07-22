@@ -23,21 +23,21 @@ const AuthenticatedUserProvider = ({ children }) => {
   )
 }
 
+function AuthStack () {
+  return (
+    <Stack.Navigator defaultScreenOptions={Login} screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="SignUp" component={SignUp} />
+    </Stack.Navigator>
+  )
+}
+
 function ChatStack () {
   return (
     <Stack.Navigator defaultScreenOptions={Home} >
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Chat" component={Chat} />
       <Stack.Screen name="Game1" component={Game1} />
-    </Stack.Navigator>
-  )
-}
-
-function AuthStack () {
-  return (
-    <Stack.Navigator defaultScreenOptions={Login} screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
   )
 }
@@ -49,7 +49,14 @@ function RootNavigator () {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth,
       async authenticatedUser => {
-        authenticatedUser ? setUser(authenticatedUser) : setUser(null);
+        
+        
+        if (authenticatedUser) {
+          setUser(authenticatedUser)
+        } else {
+          setUser(null);
+        };
+
         setLoading(false);
       }
     );
