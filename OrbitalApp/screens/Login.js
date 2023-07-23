@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from "react-native";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "../config/firebase";
+import {LinearGradient} from 'expo-linear-gradient';
 
-const backImage = require("../assets/backImage.png")
+const backImage = require("../assets/backImageFinal.png")
 
 export default function Login({ navigation }) {
 
@@ -45,12 +46,12 @@ export default function Login({ navigation }) {
                     onChangeText={(text) => setPassword(text)}
                 />
                 <TouchableOpacity style={styles.button} onPress={onHandleLogin}>
-                    <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}> Log In</Text>
+                    <Text style={styles.buttonText}> Log In</Text>
                 </TouchableOpacity>
-                <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
-                    <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>Don't have an account? </Text>
+                <View style={styles.signupTextContainer}>
+                    <Text style={styles.signupText}>Don't have an account? </Text>
                     <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                    <Text style={{color: '#3B719F', fontWeight: '600', fontSize: 14}}>Sign Up</Text>
+                    <Text style={styles.signupLink}>Sign Up!</Text>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
@@ -61,17 +62,18 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "#FFFDD0",
+        opacity: 0.95,
     },
     title: {
        fontSize: 36,
        fontWeight: 'bold',
-       color: "orange",
+       color: "#FFFDD0",
        alignSelf: "center",
-       paddingBottom: 24,
+       paddingBottom: 24, 
     },
     input: {
-       backgroundColor: "#F6F7FB",
+       backgroundColor: "#CED9C3",
        height: 58,
        marginBottom: 20,
        fontSize: 16,
@@ -90,8 +92,10 @@ const styles = StyleSheet.create({
        height: '75%',
        position: "absolute",
        bottom: 0,
-       backgroundColor: '#fff',
+       backgroundColor: '#3B719F',
        borderTopLeftRadius: 60,
+       borderTopRightRadius: 60,
+       opacity:0.9
     },
     form: {
        flex: 1,
@@ -99,11 +103,32 @@ const styles = StyleSheet.create({
        marginHorizontal: 30,
     },
     button: {
-       backgroundColor: '#3B719F',
-       height: 58,
-       borderRadius: 10,
-       justifyContent: 'center',
-       alignItems: 'center',
-       marginTop: 40,
+        backgroundColor: '#FFFDD0',
+        height: 58,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 40,
+    },
+    buttonText: {
+        fontWeight: 'bold',
+        color: '#3B719F',
+        fontSize: 18,
+    },
+    signupTextContainer: {
+        marginTop: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+    },
+    signupText: {
+        color: '#FFFDD0',
+        fontWeight: '600',
+        fontSize: 14,
+    },
+    signupLink: {
+        color: 'black',
+        fontWeight: '800',
+        fontSize: 14,
     },
 })

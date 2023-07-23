@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, Image, StyleSheet, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
@@ -19,18 +19,18 @@ const Home = () => {
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
-                <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
                     <TouchableOpacity onPress = {appSignOut} style={styles.logoutButton}>
                         <Entypo name="log-out" size={24} color={colors.cream} style={{marginLeft: 5}}/>
                     </TouchableOpacity>
-                </View>
+                </SafeAreaView>
             ),
             headerRight: () => (
-                <View style={styles.container}>
+                <SafeAreaView style={styles.container}>
                     <TouchableOpacity onPress = {() => navigation.navigate("Game1")} style={styles.gamesButton}>
                         <AntDesign name="play" size={25} color={colors.cream} style={{marginRight: 0}}/>
                     </TouchableOpacity>
-                </View>
+                </SafeAreaView>
             ),
         });
     }, [navigation]);
