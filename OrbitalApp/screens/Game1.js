@@ -18,7 +18,6 @@ export default function Game1() {
   const [gameState, setGameState] = useState({});
 
   const togglePlayerTurn = () => setIsPlayerOneTurn(!isPlayerOneTurn);
-  const toggleGameEnd = () => setGameEnded(!gameEnded);
   const toggleModal = () => setModalVisible(!modalVisible);
 
   const startNewGame = () => {
@@ -33,7 +32,7 @@ export default function Game1() {
     toggleModal();
   };
 
-  function checkWinner() {
+  const checkWinner = () => {
     const winningCombos = [
       [0, 1, 2],
       [3, 4, 5],
@@ -54,16 +53,24 @@ export default function Game1() {
         b in gameState &&
         c in gameState
       ) {
-        setGameResult(isPlayerOneTurn ? 'Congratulations, Player 1 wins!' : 'Congratulations, Player 2 wins!');
+        setGameResult(isPlayerOneTurn ? 'Congratulations Player 1!' : 'Nice going Player 2!');
         finishGame();
+        return; // Exit the function early since we have a winner
       }
     }
 
     if (Object.keys(gameState).length === 9) {
-      setGameResult('It\'s a tie!');
-      finishGame();
+      setGameResult('Tie Game!');
+      restartGame(); // Call the restart function on a draw
     }
-  }
+  };
+
+  const restartGame = () => {
+    setTurn({});
+    endGame(false);
+    toggleModal(false);
+    changeTurn(true);
+  };
 
   function makeMove(value) {
     const updatedGameState = { ...gameState };
@@ -77,7 +84,7 @@ export default function Game1() {
 
   return (
     <View style={mainStyle.container}>
-      <Text style={mainStyle.paragraph}>Let's play Tic-Tac-Toe!</Text>
+      <Text style={mainStyle.paragraph}>~ For when you're feeling bored ~</Text>
       {!gameEnded && (
         <Game1board
           gameState={gameState}
@@ -88,7 +95,7 @@ export default function Game1() {
         <View style={mainStyle.centeredView}>
           <View style={mainStyle.modalView}>
             <Text style={mainStyle.h2}>{gameResult}</Text>
-            <TouchableOpacity style={mainStyle.purpleButton} onPress={startNewGame}>
+            <TouchableOpacity style={mainStyle.blueButton} onPress={startNewGame}>
               <Text style={mainStyle.whiteButtonText}>Start a new game</Text>
             </TouchableOpacity>
           </View>
@@ -107,7 +114,7 @@ const mainStyle = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#FFD700', // Updated color
+    backgroundColor: 'white', // Updated color
     padding: 8,
   },
   paragraph: {
@@ -115,7 +122,7 @@ const mainStyle = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'white',
+    color: 'black',
   },
   subheader: {
     margin: 10,
@@ -123,7 +130,7 @@ const mainStyle = StyleSheet.create({
     padding: 10,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#FF1493', // Updated color
+    color: '#3B719F', 
   },
   legend: {
     flexDirection: 'row',
@@ -133,7 +140,7 @@ const mainStyle = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFD700', // Updated color
+    backgroundColor: 'white', 
   },
   modalView: {
     margin: 20,
@@ -156,10 +163,10 @@ const mainStyle = StyleSheet.create({
     padding: 5,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#FF1493', // Updated color
+    color: 'black', // Updated color
   },
-  purpleButton: {
-    backgroundColor: '#FF1493', // Updated color
+  blueButton: {
+    backgroundColor: '#3B719F', // Updated color
     padding: 5,
     borderRadius: 5,
   },

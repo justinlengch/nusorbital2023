@@ -23,13 +23,13 @@ const spaceStyle = StyleSheet.create({
       height: 80,
       marginVertical: 5,
       marginHorizontal: 5,
-      backgroundColor: '#FF1493', // Updated color
+      backgroundColor: '#3B719F', // Updated color
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
     },
     spaceValue: {
       fontSize: 40,
-      color: '#FFD700', // Updated color
+      color: '#FFFDD0', // Updated color
     },
   });

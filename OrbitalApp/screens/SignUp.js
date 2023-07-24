@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, Touchab
 import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "../config/firebase";
 
-const backImage = require("../assets/backImage.png")
+const backImage = require("../assets/backImage2.png")
 
 export default function SignUp({ navigation }) {
 
@@ -17,11 +17,12 @@ export default function SignUp({ navigation }) {
                 .catch((err) => Alert.alert("SignUp Error", err.message));
         }
     };
+    
 
     return (
         <View style={styles.container}>
             <Image source={backImage} style={styles.backImage} />
-            <View style = {styles.whiteSheet} />
+            <View style = {styles.upperSheet} />
             <SafeAreaView style={styles.form}>
                 <Text style={styles.title}>SignUp</Text>
                 <TextInput
@@ -45,12 +46,12 @@ export default function SignUp({ navigation }) {
                     onChangeText={(text) => setPassword(text)}
                 />
                 <TouchableOpacity style={styles.button} onPress={onHandleSignUp}>
-                    <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 18}}>Sign Up</Text>
+                    <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
-                <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
-                    <Text style={{color: 'gray', fontWeight: '600', fontSize: 14}}>Already have an account? </Text>
+                <View style={styles.loginTextContainer}>
+                    <Text style={styles.loginText}>Already have an account? </Text>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                    <Text style={{color: '#f57c00', fontWeight: '600', fontSize: 14}}>Login</Text>
+                    <Text style={styles.loginLink}>Login!</Text>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
@@ -61,17 +62,19 @@ export default function SignUp({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "#FFFDD0",
+        opacity: 0.95,
     },
     title: {
        fontSize: 36,
        fontWeight: 'bold',
-       color: "orange",
+       color: "#FFFDD0",
        alignSelf: "center",
-       paddingBottom: 24,
+       paddingBottom: 30,
+       
     },
     input: {
-       backgroundColor: "#F6F7FB",
+       backgroundColor: "#CED9C3",
        height: 58,
        marginBottom: 20,
        fontSize: 16,
@@ -85,13 +88,15 @@ const styles = StyleSheet.create({
        top: 0,
        resizeMode: 'cover',
     },
-    whiteSheet: {
+    upperSheet: {
        width: '100%',
        height: '75%',
        position: "absolute",
        bottom: 0,
-       backgroundColor: '#fff',
+       backgroundColor: '#3B719F',
        borderTopLeftRadius: 60,
+       borderTopRightRadius: 60,
+       opacity:0.9
     },
     form: {
        flex: 1,
@@ -99,11 +104,32 @@ const styles = StyleSheet.create({
        marginHorizontal: 30,
     },
     button: {
-       backgroundColor: '#f57c00',
+       backgroundColor: '#FFFDD0',
        height: 58,
        borderRadius: 10,
        justifyContent: 'center',
        alignItems: 'center',
        marginTop: 40,
+    },
+    buttonText: {
+        fontWeight: 'bold',
+        color: '#3B719F',
+        fontSize: 18,
+    },
+    loginTextContainer: {
+        marginTop: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+    },
+    loginText: {
+        color: '#FFFDD0',
+        fontWeight: '600',
+        fontSize: 14,
+    },
+    loginLink: {
+        color: 'black',
+        fontWeight: '800',
+        fontSize: 14,
     },
 })
