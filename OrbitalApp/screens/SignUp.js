@@ -17,6 +17,7 @@ export default function SignUp({ navigation }) {
                 .catch((err) => Alert.alert("SignUp Error", err.message));
         }
     };
+    
 
     return (
         <View style={styles.container}>

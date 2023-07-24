@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, SafeAreaView, StyleSheet } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { collection, addDoc, orderBy, query, onSnapshot } from 'firebase/firestore';
+import { signOut } from 'firebase/auth';
 import { auth, database } from '../config/firebase';
 import { useNavigation } from '@react-navigation/native';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Entypo } from '@expo/vector-icons';
+
 import colors from '../colors';
 import Game1 from './Game1';
 
@@ -14,26 +16,19 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const navigation = useNavigation();
     
-  const gameLaunch = () => {
-    navigation.navigate('Game1');
-  }
-  useLayoutEffect(() => {
+  useEffect(() => {
     navigation.setOptions({
-      headerRight: () => (
-        <TouchableOpacity
-          style={{
-            marginRight: 10
-          }}
-          onPress={gameLaunch}
-        >
-          <AntDesign name="play" size={24} color={colors.cream} style={{marginRight: 10}}/>
-        </TouchableOpacity>
-      )
+        headerRight: () => (
+            <SafeAreaView style={styles.container}>
+                <TouchableOpacity onPress = {() => navigation.navigate("Game1")} style={styles.gamesButton}>
+                    <AntDesign name="play" size={25} color={colors.cream} style={{marginRight: 0}}/>
+                </TouchableOpacity>
+            </SafeAreaView>
+        ),
     });
   }, [navigation]);
 
   useLayoutEffect(() => {
-
     const chatcollectionRef = collection(database, 'chats');
     const q = query(chatcollectionRef, orderBy('createdAt', 'desc'));
 
@@ -91,3 +86,68 @@ export default function Chat() {
     />
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      alignItems: 'flex-end',
+      backgroundColor: "#fff",
+  },
+  chatButton: {
+      backgroundColor: colors.primary,
+      height: 50,
+      width: 50,
+      borderRadius: 25,
+      alignItems: 'center',
+      justifyContent: 'center',
+      shadowColor: colors.primary,
+      shadowOffset: {
+          width: 0,
+          height: 2,
+      },
+      shadowOpacity: .9,
+      shadowRadius: 8,
+      marginRight: 20,
+      marginBottom: 50,
+  },
+  gamesButton: {
+      backgroundColor: colors.primary,
+      height: 50,
+      width: 50,
+      borderRadius: 25,
+      alignItems: 'center',
+      justifyContent: 'center',
+      shadowColor: colors.primary,
+      shadowOffset: {
+          width: 0,
+          height: 2,
+      },
+      shadowOpacity: .9,
+      shadowRadius: 8,
+      marginRight: 20,
+      marginTop: 50,
+  },
+  logoutButton: {
+      backgroundColor: colors.primary,
+      height: 50,
+      width: 50,
+      borderRadius: 25,
+      alignItems: 'center',
+      justifyContent: 'center',
+      shadowColor: colors.primary,
+      shadowOffset: {
+          width: 0,
+          height: 2,
+      },
+      shadowOpacity: .9,
+      shadowRadius: 8,
+      marginLeft: 20,
+      marginTop: 50,
+  },
+  backgroundImage: {
+      flex: 1,
+      resizeMode: 'center',
+      justifyContent: 'center'
+  }
+});

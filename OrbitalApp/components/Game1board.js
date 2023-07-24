@@ -35,7 +35,7 @@ const boardStyle = StyleSheet.create({
       justifyContent: 'center',
     },
     board: {
-      backgroundColor: '#FFD700', // Updated color
+      backgroundColor: '#FFFDD0', // Updated color
     },
     row: {
       justifyContent: 'space-around',

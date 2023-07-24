@@ -2,6 +2,11 @@ import 'dotenv/config';
 
 export default {
   "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "56b990fb-ff14-4616-928d-2e2b200940d3"
+      }
+    },
     "name": "OrbitalApp",
     "slug": "OrbitalApp",
     "version": "1.0.0",

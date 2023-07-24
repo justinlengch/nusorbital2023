@@ -69,7 +69,7 @@ The chat app will be primarily targeted towards university students (in this cas
 - Signing up to the chat app would require valid e-mail IDs and to confirm the same, we intend to send verification codes to the users’ entered e-mail IDs. The database for the authentication of the e-mail IDs would be based in firebase.
 
 ***Current Progress:*** 
-- Logging in and signing up have both been connected to the firebase and work completely fine, however, the verification procedure is yet to be figured out.
+- Logging in and signing up have both been connected to the firebase and work completely fine, verification has been set up.
 
 #### Profile Creation ####
 ***Proposed:***
@@ -93,7 +93,7 @@ The chat app will be primarily targeted towards university students (in this cas
 ***Current Progress***
 - A Login and Sign Up interface has been set up using firebase for Email authentication.
 
-- Verification is to be set up, however, has not progressed yet. 
+- Verification is set up by comparing and checking with existing data on database with Firestore.
 
 - As for the different base screens, they have all been further set up in the form of a home screen with no interactive buttons, a basic chat interface without user-to-user interaction yet and a fully interactive login and signup screen using *React Native, Expo* and their dependencies. 
 
@@ -164,6 +164,7 @@ The chat app will be primarily targeted towards university students (in this cas
     - Avatar rewards (displayed as profile images) redeemed by collecting points from minigames
     
 - User Testing
+    - Planned to upload app and allow public for testing by hosting on Expo servers.
 
 
 
