@@ -9,6 +9,7 @@ export default {
     },
     "name": "OrbitalApp",
     "slug": "OrbitalApp",
+    "owner": "orbital2023yuhsure",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
